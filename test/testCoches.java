@@ -1,10 +1,8 @@
 
-import cod.mvc.Coche;
-import cod.mvc.Model;
+import cod.mvc.model.Coche;
+import cod.mvc.model.Model;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 
 public class testCoches {
 

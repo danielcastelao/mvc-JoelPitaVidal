@@ -1,5 +1,5 @@
 
-package cod.mvc;
+package cod.mvc.model;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ public class Model {
      */
 
 
-    public static Coche crearCoche(String matricula,String modelo,Integer velocidad){
+       public static Coche crearCoche(String matricula,String modelo,Integer velocidad){
         Coche cocheNuevo = new Coche(matricula,modelo,velocidad);
         parking.add(cocheNuevo);
         return cocheNuevo;

@@ -1,5 +1,5 @@
 
-package cod.mvc;
+package cod.mvc.model;
 
 public class Coche {
 
