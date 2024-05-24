@@ -2,36 +2,40 @@ package cod.mvc.controller;
 
 import cod.mvc.model.Coche;
 import cod.mvc.model.Model;
+import cod.mvc.view.View;
 
 public class Controller {
-    public static void main(String[] args) {
-        // el patron Observer en java nos exige instanciar la clase observable
-        Model miModelo = new Model();
 
-        // instanciamos al observador
-        ObserverVelocidad observoVelocidad = new ObserverVelocidad();
-        miModelo.addObserver(observoVelocidad);
+    private final Model miModel;
+    /**
+     * Nueva clase controller para crear un nuevo coche y mostrarlo por pantalla
+     */
+    public static void controladorCoches(){
 
-        // instanciamos un segundo observador
-        ObserverOtro otroObservador = new ObserverOtro();
-        miModelo.addObserver(otroObservador);
+        Model.crearCoche("zl1", "0765-VGF", 250);
+        Coche miCoche = Model.getCoche("0765-VGF");
 
-        // Crear tres coches
 
-        miModelo.crearCoche("LaFerrari", "SBC 1234");
-        miModelo.crearCoche("Alpine", "HYU 4567");
-        miModelo.crearCoche("Aston Martin", "FGH 3333");
+        System.out.println(View.muestraVelocidad(miCoche.getMatricula(), miCoche.getVelocidad()));
 
-        Coche ferrari = Model.getCoche("SBC 1234");
-        // modifica la velocidad
-        miModelo.cambiarVelocidad("SBC 1234", 30);
-
-        // otro cambio de velocidad
-        miModelo.cambiarVelocidad("HYU 4567", 100);
-
-        // (ya no es necesario, lo hace el observador)
-        // recoje la velocidad y la muestra (tarea de la com.cod.mvc.view.View)
-        // boolean hecho = com.cod.mvc.view.View.muestraVelocidad("SBC 1234", com.cod.mvc.model.Model.getVelocidad("SBC 1234"));
-        // System.out.println(hecho);
     }
+    public Controller(Model miModel) {
+        this.miModel = miModel;
+
+        ObservableVelocidad obsVel = new ObservableVelocidad();
+        miModel.addObserver(obsVel);
+
+        ObserverLimite obsLim = new ObserverLimite();
+        miModel.addObserver(obsLim);
+    }
+
+    public void crearCoche(String modelo, String matricula, int velocidad) {
+        miModel.crearCoche(matricula,modelo,velocidad);
+
+    }
+
+    public void cambiarVelocidad(String matricula, Integer velocidad) {
+        miModel.cambiarVelocidad(matricula,velocidad);
+    }
+
 }

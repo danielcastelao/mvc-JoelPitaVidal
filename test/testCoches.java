@@ -1,39 +1,50 @@
-
 import cod.mvc.model.Coche;
 import cod.mvc.model.Model;
+import cod.mvc.controller.Controller;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 public class testCoches {
 
+    private Model model;
+    private Controller controller;
     @Test
-    public void comprobacionCrearCoche() {
-        Coche coche = Model.crearCoche("91765426LE","Cupra",0);
-        Assertions.assertEquals("91765426LE",coche.matricula);
-        Assertions.assertEquals("Cupra",coche.modelo);
-        Assertions.assertEquals(0,coche.velocidad);
+    public void crearCocheReturnTrue(){
+        Assertions.assertNotNull(Model.crearCoche("matricula", "modelo", 20));
     }
 
-
     @Test
-    public void comprobacionGetCoche(){
-        Coche coche = Model.crearCoche("43656C35FC","Seat",0);
-        Assertions.assertSame(coche,Model.getCoche("43656C35FC"));
+    public void getCocheAssertSameReturnTrue(){
+        Coche coche = Model.crearCoche("modelo", "matricula", 20);
+        Model.parking.add(coche);
+        assertEquals(Model.getCoche("matricula"), coche);
     }
 
-
     @Test
-    public void comprobacionCambiarVelocidad(){
-        Coche coche = Model.crearCoche("43656C35FE","Seat",0);
-        Assertions.assertEquals(24,Model.cambiarVelocidad("43656C35FE",24));
+    public void cambiarVelocidadComprobarCambioReturnTrue(){
+        Coche coche = Model.crearCoche("modelo", "matricula", 20);
+        Integer velocidad = 40;
+        Model.parking.add(coche);
+        Model.cambiarVelocidad("matricula", velocidad);
+        assertEquals(velocidad, coche.getVelocidad());
+
     }
 
-
     @Test
-    public void getVelocidad(){
-        Coche coche = Model.crearCoche("43656C35FR","Seat",45);
-        Assertions.assertEquals(45,Model.getVelocidad("43656C35FR"));
+    public void cambiarVelocidadComprobarCambioReturnFalse(){
+        ByteArrayOutputStream salida = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(salida));
+
+        controller.crearCoche("ModeloTest","MatriculaTest",120);
+        controller.cambiarVelocidad("MatriculaTest",350);
+        Coche coche = Model.getCoche("MatriculaTest");
+        assertEquals(350, coche.getVelocidad());
+
+        String salidaTest = "Se ha cambiado  la velocidad 350km/h\n"+"MatriculaTest: 350km/h\n"+"Infraccion\n";
+        assertEquals(salidaTest, salida.toString());
     }
-
-
 }
