@@ -6,7 +6,7 @@ import cod.mvc.view.View;
 
 public class Controller {
 
-    private final Model miModel = new Model();
+    private final Model miModel = Model.crearInstancia();
 
     public Controller(Model miModel) {
 

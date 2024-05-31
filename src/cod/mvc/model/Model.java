@@ -10,7 +10,22 @@ public class Model implements Observable {
 
     public static ArrayList<Coche> parking = new ArrayList<>();
 
-    public static ArrayList<Observer> observers = new ArrayList<>();
+    private static final ArrayList<Observer> observers = new ArrayList<>();
+
+    // Singleton
+    //instancia única de la clase
+    private static Model instancia = null;
+
+    // Constructor privado
+    private Model() {}
+
+    // Método para obtener la única instancia de la clase
+    public static Model crearInstancia() {
+        if (instancia == null) {
+            instancia = new Model();
+        }
+        return instancia;
+    }
 
     /**
      * Añade un objecto de tipo observer al arraylist [observers]
@@ -79,7 +94,7 @@ public class Model implements Observable {
     }
 
     /**
-     * Retorna la velocidad del coche especificado
+     * Nos  da la velocidad del coche especificado
      * @param matricula identificador unico del coche
      * @return velocidad del coche
      */

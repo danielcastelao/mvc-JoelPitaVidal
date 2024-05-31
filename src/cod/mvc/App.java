@@ -5,7 +5,7 @@ import cod.mvc.model.Model;
 
 public class App {
     public static void main(String[] args) {
-        Model miModel = new Model();
+        Model miModel = Model.crearInstancia();
 
         Controller miController = new Controller(miModel);
 
