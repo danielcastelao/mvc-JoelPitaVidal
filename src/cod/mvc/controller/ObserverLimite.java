@@ -15,6 +15,7 @@ public class ObserverLimite implements Observer{
             System.out.println(arg.getVelocidad());
             System.out.println("(ObserverLimite) Velocidad por encima del límite");
             Model.cambiarVelocidad(arg.getMatricula(),Model.getVelocidad(arg.getMatricula())-10);
+            System.out.println("La velocidad a sido reducida en 10 km/h");
         }
     }
 }
