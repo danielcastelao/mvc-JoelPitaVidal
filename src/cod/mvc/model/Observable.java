@@ -1,14 +1,12 @@
 package cod.mvc.model;
 import cod.mvc.controller.Observer;
-import cod.mvc.model.Coche;
+
+
 public interface Observable {
 
-    void addObserver(Observer observer);
+    static void addObserver(Observer arg) {}
 
+    static void removeObserver(Observer arg) {}
 
-    void removeObserver(Observer observer);
-
-
-    void notifyObservers(Coche coche);
-
+    static void notifyObservers(Coche arg) {}
 }

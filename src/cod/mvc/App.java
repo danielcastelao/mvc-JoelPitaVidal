@@ -5,14 +5,15 @@ import cod.mvc.model.Model;
 
 public class App {
     public static void main(String[] args) {
-        Model model = new Model();
-        Controller controller = new Controller(model);
+        Model miModel = new Model();
 
-        controller.crearCoche("Camaro ZL1","MJK 6976",100);
-        controller.crearCoche("Panamera","PWU 3105",170);
-        controller.crearCoche("Huracan","JTA 4310",150);
+        Controller miController = new Controller(miModel);
 
-        controller.cambiarVelocidad("JTA 4310",150);
-        controller.cambiarVelocidad("MJK 6976",130);
+        miController.crearCoche("LaFerrari", "SBC 1234");
+        miController.crearCoche("Alpine", "HYU 4567");
+
+        miController.cambiarVelocidad("SBC 1234", 30);
+        miController.cambiarVelocidad("HYU 4567", 150);
+
     }
 }

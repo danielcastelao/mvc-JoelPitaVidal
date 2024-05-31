@@ -6,36 +6,33 @@ import cod.mvc.view.View;
 
 public class Controller {
 
-    private final Model miModel;
-    /**
-     * Nueva clase controller para crear un nuevo coche y mostrarlo por pantalla
-     */
-    public static void controladorCoches(){
+    private final Model miModel = new Model();
 
-        Model.crearCoche("zl1", "0765-VGF", 250);
-        Coche miCoche = Model.getCoche("0765-VGF");
-
-
-        System.out.println(View.muestraVelocidad(miCoche.getMatricula(), miCoche.getVelocidad()));
-
-    }
     public Controller(Model miModel) {
-        this.miModel = miModel;
 
-        ObservableVelocidad obsVel = new ObservableVelocidad();
-        miModel.addObserver(obsVel);
+        ObserverVelocidad ObVelocida = new ObserverVelocidad();
+        miModel.addObserver(ObVelocida);
 
-        ObserverLimite obsLim = new ObserverLimite();
-        miModel.addObserver(obsLim);
-    }
-
-    public void crearCoche(String modelo, String matricula, int velocidad) {
-        miModel.crearCoche(matricula,modelo,velocidad);
+        ObserverLimite ObLimite = new ObserverLimite();
+        miModel.addObserver(ObLimite);
 
     }
 
-    public void cambiarVelocidad(String matricula, Integer velocidad) {
-        miModel.cambiarVelocidad(matricula,velocidad);
+    /**
+     * Crea un coche
+     * @param modelo del coche
+     * @param matricula por la que buscar el coche
+     */
+    public void crearCoche(String modelo, String matricula){
+        miModel.crearCoche(matricula,modelo);
     }
 
+    /**
+     * Cambiar la velocidad de un coche
+     * @param matricula por la que buscar el coche
+     * @param velocidad nueva
+     */
+    public void cambiarVelocidad(String matricula, Integer velocidad){
+        miModel.cambiarVelocidad(matricula, velocidad);
+    }
 }

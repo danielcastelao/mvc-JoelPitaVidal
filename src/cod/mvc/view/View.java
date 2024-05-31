@@ -1,17 +1,14 @@
 package cod.mvc.view;
 
+import cod.mvc.model.Model;
+
 public class View {
-
     /**
-     * Metodo en el que se recibe la velocidad y la matricula
-     *
-     * @param matricula identificador del vehículo
-     * @param velocidad velocidad del vehículo
-     * @return
+     * Muestra la velocidad actual del coche cuya matricula se le haya proporcionado
+     * @param matricula identificador unico del coche
+     * @param velocidad variable que se quiere mostrar
      */
-    public static boolean muestraVelocidad(String matricula, int velocidad) {
-
-        System.out.println(matricula + " : " + velocidad + "km/h");
-        return true;
+    public static void muestraVelocidad(String matricula,int velocidad){
+        System.out.println("La velocidad del coche con matricula "+matricula+", es "+ velocidad+" Km/h");
     }
 }
