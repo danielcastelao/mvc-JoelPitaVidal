@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Model implements Observable {
 
-    public static ArrayList<Coche> parking = new ArrayList<>();
+    private static ArrayList<Coche> parking = new ArrayList<>();
 
     private static final ArrayList<Observer> observers = new ArrayList<>();
 
