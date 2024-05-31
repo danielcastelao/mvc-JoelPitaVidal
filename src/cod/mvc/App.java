@@ -15,5 +15,7 @@ public class App {
         miController.cambiarVelocidad("SBC 1234", 30);
         miController.cambiarVelocidad("HYU 4567", 150);
 
+        miModel.buscarCoche();
+
     }
 }
