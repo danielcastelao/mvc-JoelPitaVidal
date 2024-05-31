@@ -1,5 +1,4 @@
-
-package cod.mvc;
+package cod.mvc.model;
 
 public class Coche {
 
@@ -7,11 +6,10 @@ public class Coche {
     public String modelo;
     public Integer velocidad;
 
-    public Coche(String matricula, String modelo, Integer velocidad) {
+    public Coche(String matricula, String modelo) {
         this.matricula = matricula;
         this.modelo = modelo;
-        this.velocidad = velocidad;
+        this.velocidad = 0;
     }
 
 }
-
