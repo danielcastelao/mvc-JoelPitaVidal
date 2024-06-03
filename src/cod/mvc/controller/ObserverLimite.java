@@ -25,4 +25,9 @@ public class ObserverLimite implements Observer{
     public void velocidad(Coche arg) {
         System.out.println("La velocidad a aumentado");
     }
+
+    @Override
+    public void velocidadMenos(Coche arg) {
+        System.out.println("La velocidad a disminuído");
+    }
 }

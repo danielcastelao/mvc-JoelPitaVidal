@@ -13,6 +13,11 @@ public class ObserverVelocidad implements Observer{
     }
     @Override
     public void velocidad(Coche coche){
-        View.velocidadSubida(coche.velocidad,coche.v);
+        View.velocidadSubida(coche.velocidad,coche.v1);
+    }
+
+    @Override
+    public void velocidadMenos(Coche coche) {
+        View.velocidadBajada(coche.velocidad,coche.v2);
     }
 }

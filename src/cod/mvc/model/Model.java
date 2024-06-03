@@ -36,6 +36,7 @@ public class Model implements Observable {
         for(Observer observer : observers){
             observer.update(coche);
             observer.velocidad(coche);
+            observer.velocidadMenos(coche);
         }
     }
 
@@ -86,11 +87,21 @@ public class Model implements Observable {
      * método subirVelocidad
      *
      */
-    public Integer subirVelocidad(String matricula,Integer v){
+    public Integer subirVelocidad(String matricula,Integer v1){
         Coche coche = getCoche(matricula);
-        coche.v = coche.velocidad + 10;
+        coche.v1 = coche.velocidad + 10;
         notifyObservers(coche);
-        return coche.v;
+        return coche.v1;
+    }
+    /**
+     * método bajarVelocidad
+     *
+     */
+    public Integer bajarVelocidad(String matricula,Integer v2){
+        Coche coche = getCoche(matricula);
+        coche.v2 = coche.velocidad -10;
+        notifyObservers(coche);
+        return coche.v2;
     }
 
     /**

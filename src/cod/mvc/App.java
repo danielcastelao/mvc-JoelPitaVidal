@@ -17,7 +17,9 @@ public class App {
 
         miController.subirVelocidad("SBC 1234",30);
 
-        miModel.buscarCoche();
+
+        miController.bajarVelocidad("SBC 1234",30);
+
 
     }
 }

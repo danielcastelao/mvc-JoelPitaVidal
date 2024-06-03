@@ -43,4 +43,9 @@ public class Controller {
         miModel.subirVelocidad(matricula, velocidad);
     }
 
+    public void bajarVelocidad(String matricula,Integer velocidad){
+        miModel.cambiarVelocidad(matricula,30);
+        miModel.bajarVelocidad(matricula, velocidad);
+    }
+
 }
