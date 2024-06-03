@@ -18,7 +18,12 @@ public class App {
         miController.subirVelocidad("SBC 1234",30);
 
 
-        miController.bajarVelocidad("SBC 1234",30);
+        miController.bajarVelocidad("SBC 1234",40);
+
+        miController.subirVelocidad("HYU 4567",150);
+
+
+        miController.bajarVelocidad("HYU 4567",160);
 
 
     }
