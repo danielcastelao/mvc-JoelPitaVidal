@@ -31,8 +31,16 @@ public class Controller {
      * Cambiar la velocidad de un coche
      * @param matricula por la que buscar el coche
      * @param velocidad nueva
-     */
+     * */
     public void cambiarVelocidad(String matricula, Integer velocidad){
         miModel.cambiarVelocidad(matricula, velocidad);
     }
+
+
+
+    public void subirVelocidad(String matricula,Integer velocidad){
+        miModel.cambiarVelocidad(matricula,30);
+        miModel.subirVelocidad(matricula, velocidad);
+    }
+
 }

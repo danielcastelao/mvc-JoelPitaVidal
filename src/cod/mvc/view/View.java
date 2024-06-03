@@ -11,4 +11,8 @@ public class View {
     public static void muestraVelocidad(String matricula,int velocidad){
         System.out.println("La velocidad del coche con matricula "+matricula+", es "+ velocidad+" Km/h");
     }
+
+    public static void velocidadSubida(Integer velocidad,Integer v){
+        System.out.println("La velocidad del coche a subido de "+velocidad+" hasta "+v+" Km/h ");
+    }
 }
